@@ -2,6 +2,9 @@ import graphene
 from graphene_django import DjangoObjectType
 from shelf_app import models
 
+class CategoryType(DjangoObjectType):
+    class Meta:
+        model = models.Category
 
 class BookType(DjangoObjectType):
     class Meta:

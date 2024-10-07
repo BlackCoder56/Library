@@ -3,13 +3,39 @@
 </script> -->
 
 <template>
-  <ol class="book-list">
-    <li class="book" v-for="book in books" :key="book.id">
-      <span class="title">{{ book.title }}</span>
-      by 
-      <span clas="author">{{ book.author }}</span>
-    </li>
-  </ol>
+  <table >
+    <thead>
+      <tr>
+        <td>
+          <span class="title">Book Name</span></td>
+        <td>
+          <span class="title">Author</span>
+        </td>
+        <td>
+          <span class="title">Category</span>
+          </td>
+        <td>
+          <span class="title">Total No.</span>
+        </td>
+        <td>
+          <span class="title">Borrowed</span>
+        </td>
+      </tr>
+    </thead>
+    <tbody class="book" v-for="book in books" :key="book.id">
+      <tr>
+        <td>
+          {{ book.title }}
+        </td>
+        <td>
+          <span clas="author">{{ book.author }}</span>
+        </td>
+        <td>Science</td>
+        <td>54</td>
+        <td>2</td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 
 <script>
@@ -25,6 +51,10 @@ export default {
 </script>
 
 <style>
+table{
+  border: solid;  
+  margin-left: 20%;
+}
 *{
   font-size:20px;
 }

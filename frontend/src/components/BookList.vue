@@ -51,15 +51,15 @@ export default {
 </script>
 
 <style>
-table{
-  border: solid;  
-  margin-left: 20%;
-}
-*{
-  font-size:20px;
-}
-.title{
-  font-weight:bold;
-  font-family: 'Times New Roman', Times, serif;
-}
+  table{
+    border: solid;  
+    margin-left: 20%;
+  }
+  *{
+    font-size:20px;
+  }
+  .title{
+    font-weight: bolder;
+    font-family: 'Times New Roman', Times, serif;
+  }
 </style>

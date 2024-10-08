@@ -1,13 +1,15 @@
 <script setup>
 import { RouterView } from 'vue-router';
-import BookFormView from '@/views/BookFormView.vue'
+// import BookFormView from '@/views/BookFormView.vue'
+import SearchBookView from './views/SearchBookView.vue';
 </script>
 
 <template>
   <div class="container">
     <h1>LIBRARY</h1>
     <hr />
-    <BookFormView />
+    <SearchBookView />
+    <!-- <BookFormView /> -->
     <router-view/>
   </div>
 </template>

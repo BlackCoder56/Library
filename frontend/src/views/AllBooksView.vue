@@ -19,7 +19,7 @@ const { result, loading, error }  = useQuery(gql`
     <div class="list-border">
         <h2>Book Shelf</h2>   
         <div v-if="loading">Loading...</div>
-        <div class="err" v-else-if="error">Error: {{ error.message }} books.</div>
+        <div class="err" v-else-if="error">Error: {{ error.message }} books! <br/>Try refreshing page.</div>
         <BookList v-else :books="result.allBooks" />
     </div>
 </template>
@@ -28,6 +28,9 @@ const { result, loading, error }  = useQuery(gql`
 .err{
     color:darkred;
     font-style: italic;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 h2{

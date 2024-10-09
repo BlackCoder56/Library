@@ -28,7 +28,7 @@ const { result, loading, error, refetch } = useQuery(GET_BOOKS, {
 });
 
 // Debounce function to reduce unnecessary API calls
-const debounceSearch = (callback, delay = 300) => {
+const debounceSearch = (callback, delay = 1000) => {
   let timeout;
   return (...args) => {
     clearTimeout(timeout);
@@ -56,8 +56,11 @@ watch(searchQuery, () => {
     <!-- Search Input Field -->
     <input v-model="searchQuery" placeholder="Search books..." />
     <h2>Book Shelf</h2>  
-    <div class="loader" v-if="loading">Loading...</div>
-    <div class="err" v-else-if="error">Error: {{ error.message }} books! <br/>Try refreshing page.</div>
+    <div class="loader" v-if="loading"></div>
+    <div class="err" v-else-if="error">
+      <span class="und-text">Connection error:</span>
+      <br/>
+       {{ error.message }} books! Try refreshing page.</div>
     
     <!-- Check if books are found -->
     <template v-else>
@@ -70,24 +73,47 @@ watch(searchQuery, () => {
 </template>
 
 <style>
-.err {
-  color: darkred;
-  font-style: italic;
-  text-align: center;
-  font-weight: bold;
-  font-size: 20px;
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  margin-left:45%;
 }
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.err {
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: #f44336;
+  padding:4px;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+}
+
+.und-text{
+  text-decoration: underline;
+}
 .no-books {
-  color: darkred;
+  color:  rgb(9, 112, 160);
   font-style: italic;
   text-align: center;
   font-weight: bold;
   font-size: 18px;
 }
+
 .loader{
-    text-align: center;
+  text-align: center;
+  color:  rgb(9, 112, 160);
 }
+
 h2 {
   text-align: center;
   font-size: 26px;
@@ -109,4 +135,5 @@ input {
   border-radius: 4px;
   border: 1px solid #ccc;
 }
+
 </style>

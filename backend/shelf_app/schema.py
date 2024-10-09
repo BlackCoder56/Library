@@ -12,7 +12,13 @@ class BookType(DjangoObjectType):
         
 class Query(graphene.ObjectType):
     books = graphene.List(BookType, title_icontains=graphene.String())
- 
+    categories = graphene.List(CategoryType)
+    
+    def resolve_categories(self, info):
+        return (
+            models.Category.objects.all()
+        )
+    
     def resolve_books(self, info, title_icontains=None):
         if title_icontains:
             return models.Book.objects.filter(title__icontains=title_icontains)

@@ -7,6 +7,11 @@ const routes = [
     name: 'book',
     component:AllBooksView
   },
+  {
+    path: '/addbook',
+    name: 'addbook',
+    component: () => import('@/views/AddBookFormView.vue')
+  }
   // {
   //   path: '/about',
   //   name: 'about',

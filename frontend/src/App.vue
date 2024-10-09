@@ -1,8 +1,8 @@
 <script setup>
 import { RouterView } from 'vue-router';
 // import BookFormView from '@/views/BookFormView.vue'
-
 </script>
+
 
 <template>
   <div class="container">
@@ -13,9 +13,14 @@ import { RouterView } from 'vue-router';
         <router-link to="/addbook">Add Book</router-link> 
         <router-link to="/borrow">Lend Book</router-link> 
       </div>
+      <span>
+        Total No. of Books: 
+        <strong class="sum-text">
+          45468:{{ sum }}
+        </strong>
+      </span>
     </nav>
     <hr />
-    <!-- <BookFormView /> -->
     <router-view/>
   </div>
 </template>

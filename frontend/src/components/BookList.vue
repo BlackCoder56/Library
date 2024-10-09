@@ -2,6 +2,7 @@
   <table >
     <thead>
       <tr>
+        <th>Book No.</th>
         <th>Book Name</th>
         <th>Author</th>
         <th>Category</th>
@@ -11,6 +12,9 @@
     </thead>
     <tbody class="book" v-for="book in books" :key="book.id">
       <tr>
+        <td>
+          APT234{{ book.id }}
+        </td>
         <td>
           {{ book.title }}
         </td>
@@ -49,6 +53,10 @@ export default {
   th, td {
       border: 1px solid black; 
       padding: 8px; 
+  }
+
+  tbody{
+    color:indianred;
   }
 
   .book-total, .books-borrowed{

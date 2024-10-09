@@ -1,25 +1,12 @@
-<!-- <script setup>
-// No need to define props explicitly in <script setup>
-</script> -->
-
 <template>
   <table >
     <thead>
       <tr>
-        <td>
-          <span class="title">Book Name</span></td>
-        <td>
-          <span class="title">Author</span>
-        </td>
-        <td>
-          <span class="title">Category</span>
-          </td>
-        <td>
-          <span class="title">Total No.</span>
-        </td>
-        <td>
-          <span class="title">Borrowed</span>
-        </td>
+        <th>Book Name</th>
+        <th>Author</th>
+        <th>Category</th>
+        <th>Total No.</th>
+        <th>Borrowed</th>
       </tr>
     </thead>
     <tbody class="book" v-for="book in books" :key="book.id">
@@ -30,9 +17,9 @@
         <td>
           <span clas="author">{{ book.author }}</span>
         </td>
-        <td>Science</td>
-        <td>54</td>
-        <td>2</td>
+        <td>{{ book.category.categoryName }}</td>
+        <td class="book-total">{{ book.total }}</td>
+        <td class="books-borrowed">0</td>
       </tr>
     </tbody>
   </table>
@@ -51,13 +38,23 @@ export default {
 </script>
 
 <style>
-  table{
-    border: solid;  
-    margin-left: 20%;
-  }
   *{
     font-size:20px;
   }
+  table {
+    border-collapse: collapse; 
+    width: 100%; 
+  }
+
+  th, td {
+      border: 1px solid black; 
+      padding: 8px; 
+  }
+
+  .book-total, .books-borrowed{
+    text-align: center;
+  }
+
   .title{
     font-weight: bolder;
     font-family: 'Times New Roman', Times, serif;

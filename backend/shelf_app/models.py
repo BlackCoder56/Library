@@ -10,8 +10,8 @@ class Category(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=20)
-    category = models.ForeignKey(Category, on_delete=models.PROTECT, default=1)
-    total = models.PositiveIntegerField(default=23)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT)
+    total = models.PositiveIntegerField()
     # # borrowed = models.PositiveBigIntegerField()
     
     def __str__(self):
